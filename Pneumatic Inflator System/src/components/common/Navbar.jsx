@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../assets/PneumaticInflatorSystem3d.png'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
     return (
@@ -15,21 +16,21 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active fw-bold fs-5" aria-current="page" href="#">Home</a>
+                                <Link className="nav-link active fw-bold fs-5" aria-current="page" href="#" to={'/'}>Home</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active fw-bold fs-5" aria-current="page" href="#">About</a>
+                                <Link className="nav-link active fw-bold fs-5" aria-current="page" href="#" to={'about'}>About</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active fw-bold fs-5" aria-current="page" href="#">Contact Us</a>
+                                <Link className="nav-link active fw-bold fs-5" aria-current="page" href="#" to={'contact'}>Contact Us</Link>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle fw-bold fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link class="nav-link dropdown-toggle fw-bold fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Account
-                                </a>
+                                </Link>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Login</a></li>
-                                    <li><a class="dropdown-item" href="#">Registration</a></li>
+                                    <li><Link class="dropdown-item" href="#" to={'login'}>Login</Link></li>
+                                    <li><Link class="dropdown-item" href="#" to={'registration'}>Registration</Link></li>
                                 </ul>
                             </li>
                         </ul>

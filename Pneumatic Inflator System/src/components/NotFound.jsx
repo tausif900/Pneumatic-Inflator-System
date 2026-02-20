@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Home() {
+function NotFound() {
   return (
     <div>
-      Home
+      Not Found
     </div>
   )
 }
 
-export default Home
+export default NotFound
