@@ -55,7 +55,7 @@
     transform: scale(1.07);
 }
 
-.kg-cust-Register-btn {
+.kg-cust-Register-btn:hover {
     background-color: #8E0000;
     transform: scale(1.07);
 }
@@ -76,6 +76,7 @@ label {
     color: #FF6F00;
     text-shadow: 1px 1px 10px 0px black;
 }
-.error-msg{
+
+.error-msg {
     color: #FF6F00;
 }
