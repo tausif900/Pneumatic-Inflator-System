@@ -16,21 +16,21 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link active fw-bold fs-5" aria-current="page" href="#" to={'/'}>Home</Link>
+                                <Link className="nav-link active fw-bold fs-5" aria-current="page" to={'/'}>Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active fw-bold fs-5" aria-current="page" href="#" to={'about'}>About</Link>
+                                <Link className="nav-link active fw-bold fs-5" aria-current="page" to={'about'}>About</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active fw-bold fs-5" aria-current="page" href="#" to={'contact'}>Contact Us</Link>
+                                <Link className="nav-link active fw-bold fs-5" aria-current="page" to={'contact'}>Contact Us</Link>
                             </li>
                             <li class="nav-item dropdown">
-                                <Link class="nav-link dropdown-toggle fw-bold fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link class="nav-link dropdown-toggle fw-bold fs-5" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Account
                                 </Link>
                                 <ul class="dropdown-menu">
-                                    <li><Link class="dropdown-item" href="#" to={'login'}>Login</Link></li>
-                                    <li><Link class="dropdown-item" href="#" to={'registration'}>Registration</Link></li>
+                                    <li><Link class="dropdown-item" to={'login'}>Login</Link></li>
+                                    <li><Link class="dropdown-item" to={'registration'}>Registration</Link></li>
                                 </ul>
                             </li>
                         </ul>

@@ -14,11 +14,11 @@ import NotFound from './components/NotFound';
 
 const router = createBrowserRouter([
   {
-    path: '',
+    path: '/',
     element: <Layout />,
     children: [
       {
-        index: 'true',
+        index: true,
         element: <Home />
       },
       {
