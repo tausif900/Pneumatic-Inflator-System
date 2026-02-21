@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .kg-img {
     height: 100px;
     width: 200px;
@@ -89,6 +93,7 @@ label {
     border-radius: 15px 15px 0px 0px;
     box-shadow: 0px -5px 16px 0px black;
 }
-.text-clr{
+
+.text-clr {
     color: black;
 }
