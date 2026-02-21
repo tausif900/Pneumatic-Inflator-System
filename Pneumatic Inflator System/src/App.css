@@ -22,3 +22,60 @@
     transform: scale(1.07);
 }
 
+.cust-login {
+    width: 500px;
+    height: 400px;
+    box-shadow: 0px 0px 19px 11px #ff8b2b
+}
+
+
+.cust-register {
+    width: 500px;
+    box-shadow: 0px 0px 19px 11px #ff8b2b
+}
+
+.kg-cust-login-btn {
+    background-color: #FF6F00;
+    color: white;
+    border-radius: 10px;
+    height: 40px;
+    box-shadow: 1px 1px 10px 0px black
+}
+
+.kg-cust-Register-btn {
+    background-color: #FF6F00;
+    color: white;
+    border-radius: 10px;
+    height: 40px;
+    box-shadow: 1px 1px 10px 0px black
+}
+
+.kg-cust-login-btn:hover {
+    background-color: #8E0000;
+    transform: scale(1.07);
+}
+
+.kg-cust-Register-btn {
+    background-color: #8E0000;
+    transform: scale(1.07);
+}
+
+.text-decoration-underline {
+    color: #8E0000;
+}
+
+.input-login {
+    box-shadow: 0px 0px 17px 1px #ff8b2b;
+}
+
+label {
+    color: #FF6F00;
+}
+
+.text-center {
+    color: #FF6F00;
+    text-shadow: 1px 1px 10px 0px black;
+}
+.error-msg{
+    color: #FF6F00;
+}
