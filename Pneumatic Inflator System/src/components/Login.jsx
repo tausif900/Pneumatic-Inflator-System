@@ -18,15 +18,13 @@ function Login() {
             <div className="mb-3">
               <label htmlFor="emailInput" className="form-label">EMAIL</label>
               <input type="email" className="form-control input-login" id="emailInput" aria-describedby="emailHelp"
-                placeholder="Enter username"{...register('email', { required: 'email is required', minLength: { value: 10, message: 'email must contain atleast 10 character long' } })} />
-                {errors.email && <p className='error-msg'>{errors.email.message}</p>}
+                placeholder="Enter username"{...register('email', { required: 'email is required', minLength: { value: 10, message: 'email must be 10 character long' } })} />
+              {errors.email && <p className='error-msg'>{errors.email.message}</p>}
             </div>
             <div className="mb-3">
               <label htmlFor="passwordInput" className="form-label">PASSWORD</label>
-              <input type="password" className="form-control
-                        input-login"
-                placeholder='Enter Password'
-                id="passwordInput" />
+              <input type="password" className="form-control input-login" placeholder='Enter Password' id="passwordInput" {...register('password', { required: 'Enter Password is essential', pattern: { value: /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/, message: "Password has a minimum of 6 characters, at least 1 uppercase letter, 1 lowercase letter, and 1 number with no spaces." } })} />
+              {errors.password && <p className='error-msg'>{errors.password.message}</p>}
             </div>
             <button type="login" className="kg-cust-login-btn w-25">Login</button>
             <div className="form-text text-start">Not a user?
