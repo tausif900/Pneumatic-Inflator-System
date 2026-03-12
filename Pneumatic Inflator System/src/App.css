@@ -78,10 +78,10 @@ label {
     color: #FF6F00;
 }
 
-.text-center {
+/* .text-center {
     color: #FF6F00;
     text-shadow: 1px 1px 10px 0px black;
-}
+} */
 
 .error-msg {
     color: red;

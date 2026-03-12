@@ -14,7 +14,7 @@ function Navbar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav mx-auto gap-5">
                             <li className="nav-item">
                                 <Link className="nav-link active fw-bold fs-5" aria-current="page" to={'/'}>Home</Link>
                             </li>
@@ -34,10 +34,6 @@ function Navbar() {
                                 </ul>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2 " type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success cust-btn" type="submit">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>
