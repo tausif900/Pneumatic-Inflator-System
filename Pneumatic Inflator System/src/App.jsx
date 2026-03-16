@@ -1,14 +1,18 @@
-import { useState } from 'react'
 import './App.css'
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from "react-router-dom";
-import Layout from './components/common/Layout'
-import Home from './components/Home';
-import Login from './components/Login';
-import Registration from './components/Registration';
-import About from './components/About';
-import Contact from './components/Contact';
-import NotFound from './components/NotFound';
+import Layout from './components/common/Layout';
+import Home from './Routes/Home';
+import Sales from './Routes/Sales';
+import Purchase from './Routes/Purchase';
+import Billing from './Routes/Billing';
+import Products from './Routes/Products';
+import Reports from './Routes/Reports';
+import About from './Routes/About';
+import Contact from './Routes/Contact';
+import Login from './Routes/Login';
+import Register from './Routes/Register';
+
 
 
 const router = createBrowserRouter([
@@ -18,30 +22,49 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
-        path:'login',
-        element:<Login/>
+        path: 'about',
+        element: <About />,
       },
       {
-        path:'registration',
-        element:<Registration/>
+        path: 'contact',
+        element: <Contact />,
       },
       {
-        path:'About',
-        element:<About/>
+        path: 'Login',
+        element: <Login />,
       },
       {
-        path:'contact',
-        element:<Contact/>
+        path: 'register',
+        element: <Register />,
       },
       {
-        path:'*',
-        element:<NotFound/>
-      }
-    ]
-  }
+        path: 'sales',
+        element: <Sales />,
+        children: [
+          {
+            path: "billing",
+            element: <Billing />
+          },
+        ],
+      },
+      {
+        path: 'purchase',
+        element: <Purchase />,
+      },
+      {
+        path: 'products',
+        element: <Products />,
+      },
+      {
+        path: 'reports',
+        element: <Reports />,
+      },
+
+    ],
+  },
 ])
 
 function App() {
