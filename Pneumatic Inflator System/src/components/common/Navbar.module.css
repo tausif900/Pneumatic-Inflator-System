@@ -1,0 +1,16 @@
+.navbarCustom {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    padding: 12px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.link {
+    padding: 5px;
+    color: white;
+    transition: 0.3s;
+}
+
+.link:hover {
+    border-bottom: 1px solid #ffd369;
+}
+
