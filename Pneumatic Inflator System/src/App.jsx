@@ -12,6 +12,7 @@ import About from './Routes/About';
 import Contact from './Routes/Contact';
 import Login from './Routes/Login';
 import Register from './Routes/Register';
+import Admin from './Routes/Admin';
 
 
 
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
             element: <Billing />
           },
         ],
+      },
+
+      {
+        path: 'admin',
+        element: < Admin />,
       },
       {
         path: 'purchase',
