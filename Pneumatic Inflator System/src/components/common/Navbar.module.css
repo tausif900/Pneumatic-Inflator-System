@@ -1,16 +1,35 @@
-.navbarCustom {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    padding: 12px 20px;
-    transition: all 0.3s ease-in-out;
-}
+ .navbarContainer {
+     background: linear-gradient(135deg, #f2aa6b, #4aab5b);
+     padding: 5px 20px;
+     height: 50px;
+     transition: all 0.3s ease-in-out;
+     color: black;
+     font-size: 22px;
+     display: flex;
+ }
 
-.link {
-    padding: 5px;
-    color: white;
-    transition: 0.3s;
-}
+ .navbarBrand {
+     display: inline;
+     justify-content: space-around;
+ }
 
-.link:hover {
-    border-bottom: 1px solid #ffd369;
-}
+ .navbarContent {
+     width: 70%;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     margin-left: 100px;
+ }
 
+ .link {
+     color: black;
+     text-decoration: none;
+     transition: all 0.3s ease;
+     border-bottom: 2px solid transparent;
+     display: inline-block;
+ }
+
+ .link:hover {
+     transform: translateY(-2px);
+     border-bottom: 1px solid black;
+ }

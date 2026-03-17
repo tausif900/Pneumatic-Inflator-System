@@ -1,36 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
   return (
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style={{ width: "200px", height: "100vh" }}>
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li> <Link to="/" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#speedometer2"></use></svg>
+    <div class={`text-bg-dark ${styles.sidebarContainer}`}>
+      <ul>
+        <li> <Link to="/" class={` ${styles.sidebarlink}`}>
           Dashboard
         </Link>
         </li>
-         <li>
-          <Link to="/admin" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#table"></use></svg>
+        <li>
+          <Link to="/admin" class={` ${styles.sidebarlink}`}> 
             Admin
           </Link>
         </li>
         <li>
-          <Link to="/sales" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#table"></use></svg>
+          <Link to="/sales" class={` ${styles.sidebarlink}`}> 
             Sales
           </Link>
         </li>
         <li>
-          <Link to="/purchase" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#grid"></use></svg>
+          <Link to="/purchase" class={` ${styles.sidebarlink}`}> 
             Purchase
           </Link>
         </li>
         <li>
-          <Link to="/products" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#grid"></use></svg>
+          <Link to="/products" class={`${styles.sidebarlink}`}> 
             Products
           </Link>
         </li>
         <li>
-          <Link to="/reports" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#people-circle"></use></svg>
+          <Link to="/reports" class={`${styles.sidebarlink}`}> 
             Reports
           </Link>
         </li>

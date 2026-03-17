@@ -1,0 +1,9 @@
+.sidebarContainer {
+    background: linear-gradient(135deg, #f2aa6b, #66e47d);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 20px;
+    width: 200px;
+    height: 93vh;
+}
