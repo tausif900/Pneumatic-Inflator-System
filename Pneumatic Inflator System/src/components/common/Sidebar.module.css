@@ -1,9 +1,36 @@
 .sidebarContainer {
-    background: linear-gradient(135deg, #f2aa6b, #66e47d);
+    background: linear-gradient(135deg, #1dd5d5, #0cc1c1);
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
     padding: 20px;
     width: 200px;
     height: 93vh;
+}
+
+.listContainer {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.listContainer li {
+    margin-bottom: 10px;
+}
+
+
+.sidebarlink {
+    display: block;
+    padding: 12px 15px;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+.sidebarlink:hover {
+    border-bottom: 1px solid black;
+    transform: translateY(5px);
 }
