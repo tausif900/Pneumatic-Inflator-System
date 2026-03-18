@@ -89,3 +89,104 @@
         opacity: 1;
     }
 }
+
+/* Feature CSS */
+
+.featureSection {
+    animation: fadeIn 1s ease-in;
+}
+
+.featureCard {
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.featureCard:hover {
+    transform: translateY(-8px);
+    background-color: #33b1fa;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: #0d6efd;
+    transition: all 0.3s ease;
+}
+
+.featureCard:hover .featureIcon {
+    transform: scale(1.2);
+    color: #4972f8;
+}
+
+.featureTitle {
+    transition: 0.3s ease;
+}
+
+
+.featureCard:hover .featureTitle {
+    color: #0d6efd;
+}
+
+
+.featureText {
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+.featureCard:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.featureCard:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.featureCard:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.featureCard:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.featureCard:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.featureCard:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.featureCard:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.featureCard:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
