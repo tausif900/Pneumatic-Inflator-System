@@ -8,7 +8,7 @@ const Sidebar = () => {
       <ul className={`${styles.listContainer}`}>
         <li>
           <NavLink
-            to="/"
+            to="/dashboard"
             end
             className={({ isActive }) =>
               isActive ? `${styles.sidebarlink} ${styles.active}` : styles.sidebarlink

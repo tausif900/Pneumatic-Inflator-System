@@ -1,5 +1,5 @@
 .sidebarContainer {
-    background: linear-gradient(135deg, #1dd5d5, #0cc1c1);
+    background: linear-gradient(135deg, #3878ef, #9ab7ea);
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -36,7 +36,7 @@
 }
 
 .active {
-    background: #15658e;
+    background: #4bbef8;
     color: #000;
     border-radius: 5px;
 }

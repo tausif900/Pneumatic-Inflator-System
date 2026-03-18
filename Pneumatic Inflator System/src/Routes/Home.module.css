@@ -1,0 +1,91 @@
+.heroSection {
+    animation: fadeIn 1.5s ease-in;
+}
+
+.heroBox {
+    background: linear-gradient(135deg, #3878ef, #9ab7ea);
+    color: black;
+    transition: 0.4s ease;
+}
+
+.heroBox:hover {
+    transform: scale(1.01);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.heroImg {
+    border-radius: 15px;
+    animation: slideFromLeft 1.2s ease-in-out;
+    transition: 0.4s;
+}
+
+.heroImg:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.heading {
+    animation: slideFromTop 1s ease-in-out;
+}
+
+.subtext {
+    margin-top: 10px;
+    opacity: 0.9;
+    animation: fadeUp 1.5s ease-in-out;
+}
+
+.btnCustom {
+    transition: all 0.3s ease;
+    background-color: #9ab7ea;
+}
+
+.btnCustom:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: #9ab7ea !important;
+    border: none;
+}
+
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-80px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromTop {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

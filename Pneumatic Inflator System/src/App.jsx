@@ -13,6 +13,7 @@ import Contact from './Routes/Contact';
 import Login from './Routes/Login';
 import Register from './Routes/Register';
 import Admin from './Routes/Admin';
+import Dashboard from './Routes/Dashboard';
 
 
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: '/dashboard',
+        element: <Dashboard />
       },
       {
         path: 'about',
