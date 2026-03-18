@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
@@ -7,34 +7,59 @@ const Sidebar = () => {
     <div class={`text-bg-dark ${styles.sidebarContainer}`}>
       <ul className={`${styles.listContainer}`}>
         <li>
-          <Link to="/" class={` ${styles.sidebarlink}`}>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarlink} ${styles.active}` : styles.sidebarlink
+            }
+          >
             Dashboard
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/admin" class={` ${styles.sidebarlink}`}>
-            Admin
-          </Link>
-        </li>
-        <li>
-          <Link to="/sales" class={` ${styles.sidebarlink}`}>
+          <NavLink
+            to="/sales"
+            end
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarlink} ${styles.active}` : styles.sidebarlink
+            }
+          >
             Sales
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/purchase" class={` ${styles.sidebarlink}`}>
+          <NavLink
+            to="/purchase"
+            end
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarlink} ${styles.active}` : styles.sidebarlink
+            }
+          >
             Purchase
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/products" class={`${styles.sidebarlink}`}>
+          <NavLink
+            to="/products"
+            end
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarlink} ${styles.active}` : styles.sidebarlink
+            }
+          >
             Products
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/reports" class={`${styles.sidebarlink}`}>
+          <NavLink
+            to="/reports"
+            end
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarlink} ${styles.active}` : styles.sidebarlink
+            }
+          >
             Reports
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>

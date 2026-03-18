@@ -34,3 +34,9 @@
     border-bottom: 1px solid black;
     transform: translateY(5px);
 }
+
+.active {
+    background: #15658e;
+    color: #000;
+    border-radius: 5px;
+}
