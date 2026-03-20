@@ -6,7 +6,7 @@ import { VscAccount } from "react-icons/vsc";
 const Navbar = () => {
   return (
     <>
-      <nav className={`${styles.navbarContainer}`}>
+      <nav className={` fixed-top ${styles.navbarContainer}`}>
         <div className={`${styles.navbarBrand}`}>Pneumatic Inflator System</div>
         <div className={`${styles.navbarContent}`}>
           <Link className={`${styles.link}`} to={'/'}>Home</Link>

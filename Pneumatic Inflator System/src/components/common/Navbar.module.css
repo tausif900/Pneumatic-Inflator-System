@@ -1,7 +1,7 @@
  .navbarContainer {
-     background: linear-gradient(135deg,  #234687, #2a5298, #6dd5ed);
+     background: linear-gradient(135deg, #234687, #2a5298, #6dd5ed);
      padding: 5px 20px;
-     height: 50px;
+     height: 80px;
      transition: all 0.3s ease-in-out;
      color: black;
      font-size: 22px;
@@ -11,6 +11,17 @@
  .navbarBrand {
      display: inline;
      justify-content: space-around;
+     margin: 20px;
+     font-size: 20px;
+     color: azure;
+     font-weight: bold;
+     letter-spacing: 1px;
+     transition: 0.3s ease;
+     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+ }
+
+ .navbarBrand:hover {
+     transform: scale(1.2);
  }
 
  .navbarContent {
