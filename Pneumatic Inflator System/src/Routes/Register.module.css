@@ -1,0 +1,29 @@
+.pageShell {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.heading {
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.subHeading {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.loginCard {
+  background-color: rgb(2, 75, 158);
+}
+
+.logonButton {
+  background-color: rgba(24, 87, 189, 0.444);
+}
+
+.input {
+  color: white;
+}
