@@ -2,6 +2,10 @@
     padding: 20px;
 }
 
+hr {
+    color: white;
+}
+
 .heading {
     font-weight: bold;
     margin-bottom: 20px;
@@ -78,4 +82,43 @@
 
 .ordersCard {
     background: linear-gradient(135deg, #8e2de2, #4a00e0);
+}
+
+/* Recent Activity CSS */
+.recentActivityContainer {
+    padding: 20px;
+}
+
+.table {
+    background: transparent !important;
+    color: white;
+    margin-bottom: 0 !important;
+}
+
+.table tr,
+.table td,
+.table th {
+    background: transparent !important;
+    color: black;
+}
+
+.table thead {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.table thead th {
+    border: none;
+}
+
+.tableContainer {
+    border-radius: 5px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Charts CSS */
+
+.chartSection{
+    padding: 20px;
 }
