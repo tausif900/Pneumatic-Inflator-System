@@ -112,7 +112,7 @@ const Dashboard = () => {
         <h2 className={styles.heading}>Charts</h2>
         <hr />
         <h3>Sales Overview</h3>
-        
+
         {/* Graph Representation */}
 
         <ResponsiveContainer width='100%' height={300}>
