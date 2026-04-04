@@ -14,16 +14,7 @@ import {
 const Dashboard = () => {
   const [searchProducts, setSearchProducts] = useState("");
   const [productStatus, setProductStatus] = useState("All");
-
-  const data = [
-    { name: "Jan", sales: 4000 },
-    { name: "Feb", sales: 3000 },
-    { name: "Mar", sales: 5000 },
-    { name: "Apr", sales: 4000 },
-    { name: "May", sales: 6000 },
-  ];
-
-  const productsOverviews = [
+  const [productsOverviews, setProductsOverview] = useState([
     {
       ID: 1,
       Product_Name: "Air Compressor",
@@ -48,12 +39,33 @@ const Dashboard = () => {
       Net_Price: 500,
       Status: "Not Available",
     },
+  ]);
+
+  const [newProduct, setNewProduct] = useState({
+    Product_Name: "",
+    Category: "",
+    Quantity: "",
+    Net_Price: "",
+    Status: "Available",
+  });
+
+  // handleChange is a function that handles the change when we write anything in input fields.
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct({ ...newProduct, [name]: value });
+  };
+
+  const data = [
+    { name: "Jan", sales: 4000 },
+    { name: "Feb", sales: 3000 },
+    { name: "Mar", sales: 5000 },
+    { name: "Apr", sales: 4000 },
+    { name: "May", sales: 6000 },
   ];
 
   const filteredProducts = productsOverviews
     .filter((product) => {
-      return;
-      productStatus === "All" || product.Status === productStatus;
+      return productStatus === "All" || product.Status === productStatus;
     })
     .filter((product) => {
       return product.Product_Name.toLowerCase().includes(
@@ -161,12 +173,70 @@ const Dashboard = () => {
       <div className={styles.recentActivityContainer}>
         <h2 className={styles.heading}>Product Overview</h2>
         <hr />
+        {/* CRUD for Product ----> form for product */}
+        <div className="card p-4 shadow-sm mb-4">
+          <h5 className="mb-3">Add New Product</h5>
+          <div className="row">
+            <div className="col-md-6 mb-3">
+              <input
+                type="text"
+                name="Product_Name"
+                className="form-control mx-2"
+                placeholder="Product Name"
+                value={newProduct.Product_Name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-6 mb-3">
+              <input
+                type="text"
+                name="Category"
+                className="form-control mx-2"
+                placeholder="Category"
+                value={newProduct.Category}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-6 mb-3">
+              <input
+                type="number"
+                name="Quantity"
+                className="form-control mx-2"
+                placeholder="Quantity"
+                value={newProduct.Quantity}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-6 mb-3">
+              <input
+                type="number"
+                name="Net_Price"
+                className="form-control mx-2"
+                placeholder="Price"
+                value={newProduct.Net_Price}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col-md-6 mb-3">
+              <select
+                className="form-control mx-2"
+                name="Status"
+                value={newProduct.Status}
+                onChange={handleChange}
+              >
+                <option>Available</option>
+                <option>Low Stock</option>
+                <option>Not Available</option>
+              </select>
+            </div>
+          </div>
+        </div>
 
         {/* Search Input to check Products Availability*/}
-        <div class="mb-3">
+        <div className="mb-3">
           <input
             type="text"
-            class="form-control mx-2"
+            className="form-control mx-2"
             placeholder="Search Products......"
             value={searchProducts}
             onChange={(e) => setSearchProducts(e.target.value)}
@@ -174,31 +244,31 @@ const Dashboard = () => {
         </div>
 
         {/* Buttons for Filtration */}
-        <div class="mb-3 d-flex justify-content-center">
+        <div className="mb-3 d-flex justify-content-center">
           <button
             type="button"
-            class="btn btn-primary me-2"
+            className="btn btn-primary me-2"
             onClick={() => setProductStatus("All")}
           >
             All
           </button>
           <button
             type="button"
-            class="btn btn-success me-2 "
+            className="btn btn-success me-2 "
             onClick={() => setProductStatus("Available")}
           >
             Available Products
           </button>
           <button
             type="button"
-            class="btn btn-warning me-2"
+            className="btn btn-warning me-2"
             onClick={() => setProductStatus("Low Stock")}
           >
             Low Stock Product
           </button>
           <button
             type="button"
-            class="btn btn-danger"
+            className="btn btn-danger"
             onClick={() => setProductStatus("Not Available")}
           >
             Out of Stock Products
@@ -218,42 +288,45 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredProducts.map((product) => (
-                <tr key={product.ID}>
-                  <td>{product.ID}</td>
-                  <td>{product.Product_Name}</td>
-                  <td>{product.Category}</td>
-                  <td>{product.Quantity}</td>
-                  <td>{product.Net_Price}</td>
-                  <td>
-                    <span
-                      className={
-                        product.Status === "Available"
-                          ? "badge bg-success"
-                          : product.Status === "Low Stock"
-                            ? "badge bg-warning text-dark"
-                            : "badge bg-danger"
-                      }
-                    >
-                      {product.Status}
-                    </span>
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => (
+                  <tr key={product.ID}>
+                    <td>{product.ID}</td>
+                    <td>{product.Product_Name}</td>
+                    <td>{product.Category}</td>
+                    <td>{product.Quantity}</td>
+                    <td>{product.Net_Price}</td>
+                    <td>
+                      <span
+                        className={
+                          product.Status === "Available"
+                            ? "badge bg-success"
+                            : product.Status === "Low Stock"
+                              ? "badge bg-warning text-dark"
+                              : "badge bg-danger"
+                        }
+                      >
+                        {product.Status}
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" className="text-center">
+                    No products found
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
       </div>
-
       {/* Charts Section */}
-
       <div className={styles.chartSection}>
         <h2 className={styles.heading}>Charts</h2>
         <hr />
         <h3>Sales Overview</h3>
-
-        {/* Graph Representation */}
-
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="#444" />
@@ -273,7 +346,7 @@ const Dashboard = () => {
               dataKey="sales"
               stroke="#00e5ff"
               strokeWidth={3}
-              dot={{ r: 4, fill: '"#00e5ff"' }}
+              dot={{ r: 4, fill: "#00e5ff" }}
               activeDot={{ r: 6 }}
             />
           </LineChart>
@@ -282,5 +355,4 @@ const Dashboard = () => {
     </>
   );
 };
-
 export default Dashboard;
