@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Dashboard.module.css";
+
 import {
   CartesianGrid,
   Legend,
@@ -14,32 +15,7 @@ import {
 const Dashboard = () => {
   const [searchProducts, setSearchProducts] = useState("");
   const [productStatus, setProductStatus] = useState("All");
-  const [productsOverviews, setProductsOverview] = useState([
-    {
-      ID: 1,
-      Product_Name: "Air Compressor",
-      Category: "Machine",
-      Quantity: 10,
-      Net_Price: 15000,
-      Status: "Available",
-    },
-    {
-      ID: 2,
-      Product_Name: "Air Filter",
-      Category: "Filter",
-      Quantity: 5,
-      Net_Price: 2000,
-      Status: "Low Stock",
-    },
-    {
-      ID: 3,
-      Product_Name: "Oil Filter",
-      Category: "Filter",
-      Quantity: 10,
-      Net_Price: 500,
-      Status: "Not Available",
-    },
-  ]);
+  const [products, setProducts] = useState([]);
 
   const [newProduct, setNewProduct] = useState({
     Product_Name: "",
@@ -55,6 +31,25 @@ const Dashboard = () => {
     setNewProduct({ ...newProduct, [name]: value });
   };
 
+  // Add Product funtionality
+  const handleAddProduct = () => {
+    const newEntry = { ...newProduct, ID: products.length + 1 };
+    setProducts([...products, newEntry]);
+    setNewProduct({
+      Product_Name: "",
+      Category: "",
+      Quantity: "",
+      Net_Price: "",
+      Status: "Available",
+    });
+  };
+
+  //Delete Product funtionality
+  const handleDeleteProduct = (id) => {
+    const updateProducts = products.filter((product) => product.ID !== id);
+    setProducts(updateProducts);
+  };
+
   const data = [
     { name: "Jan", sales: 4000 },
     { name: "Feb", sales: 3000 },
@@ -63,7 +58,7 @@ const Dashboard = () => {
     { name: "May", sales: 6000 },
   ];
 
-  const filteredProducts = productsOverviews
+  const filteredProducts = products
     .filter((product) => {
       return productStatus === "All" || product.Status === productStatus;
     })
@@ -174,8 +169,8 @@ const Dashboard = () => {
         <h2 className={styles.heading}>Product Overview</h2>
         <hr />
         {/* CRUD for Product ----> form for product */}
-        <div className="card p-4 shadow-sm mb-4">
-          <h5 className="mb-3">Add New Product</h5>
+        <div className="card p-2 shadow-sm mb-4 mx-5">
+          <h5 className="px-3">Add New Product</h5>
           <div className="row">
             <div className="col-md-6 mb-3">
               <input
@@ -229,52 +224,62 @@ const Dashboard = () => {
                 <option>Not Available</option>
               </select>
             </div>
+            <div className="text-start col-md-6 mb-3">
+              <button
+                type="button"
+                className="btn btn-primary px-4"
+                onClick={handleAddProduct}
+              >
+                Add
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Search Input to check Products Availability*/}
-        <div className="mb-3">
-          <input
-            type="text"
-            className="form-control mx-2"
-            placeholder="Search Products......"
-            value={searchProducts}
-            onChange={(e) => setSearchProducts(e.target.value)}
-          />
-        </div>
+        <div className="row mx-2">
+          <div className="mb-3 col-6">
+            <input
+              type="text"
+              className="form-control mx-2"
+              placeholder="Search Products......"
+              value={searchProducts}
+              onChange={(e) => setSearchProducts(e.target.value)}
+            />
+          </div>
 
-        {/* Buttons for Filtration */}
-        <div className="mb-3 d-flex justify-content-center">
-          <button
-            type="button"
-            className="btn btn-primary me-2"
-            onClick={() => setProductStatus("All")}
-          >
-            All
-          </button>
-          <button
-            type="button"
-            className="btn btn-success me-2 "
-            onClick={() => setProductStatus("Available")}
-          >
-            Available Products
-          </button>
-          <button
-            type="button"
-            className="btn btn-warning me-2"
-            onClick={() => setProductStatus("Low Stock")}
-          >
-            Low Stock Product
-          </button>
-          <button
-            type="button"
-            className="btn btn-danger"
-            onClick={() => setProductStatus("Not Available")}
-          >
-            Out of Stock Products
-          </button>
+          {/* Buttons for Filtration */}
+          <div className="mb-3 col-6">
+            <button
+              type="button"
+              className="btn btn-primary me-2"
+              onClick={() => setProductStatus("All")}
+            >
+              All
+            </button>
+            <button
+              type="button"
+              className="btn btn-success me-2 "
+              onClick={() => setProductStatus("Available")}
+            >
+              Available Products
+            </button>
+            <button
+              type="button"
+              className="btn btn-warning me-2"
+              onClick={() => setProductStatus("Low Stock")}
+            >
+              Low Stock Product
+            </button>
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => setProductStatus("Not Available")}
+            >
+              Out of Stock Products
+            </button>
+          </div>
         </div>
-
         <div className={`table-responsive ${styles.tableContainer}`}>
           <table className={`table table-striped table-hover ${styles.table}`}>
             <thead>
@@ -285,6 +290,7 @@ const Dashboard = () => {
                 <th scope="col">Quantity</th>
                 <th scope="col">Net Price</th>
                 <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -309,11 +315,19 @@ const Dashboard = () => {
                         {product.Status}
                       </span>
                     </td>
+                    <td>
+                      <button
+                        className="btn btn-danger btn-sm"
+                        onClick={() => handleDeleteProduct(product.ID)}
+                      >
+                        Delete
+                      </button>
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="6" className="text-center">
+                  <td colSpan="7" className="text-center">
                     No products found
                   </td>
                 </tr>
