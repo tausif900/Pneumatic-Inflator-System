@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Dashboard.module.css";
 import {
   CartesianGrid,
@@ -12,6 +12,9 @@ import {
 } from "recharts";
 
 const Dashboard = () => {
+  const [searchProducts, setSearchProducts] = useState("");
+  const [productStatus, setProductStatus] = useState("All");
+
   const data = [
     { name: "Jan", sales: 4000 },
     { name: "Feb", sales: 3000 },
@@ -20,16 +23,44 @@ const Dashboard = () => {
     { name: "May", sales: 6000 },
   ];
 
-  const products = [
+  const productsOverviews = [
     {
       ID: 1,
       Product_Name: "Air Compressor",
       Category: "Machine",
       Quantity: 10,
-      Price: 15000,
+      Net_Price: 15000,
       Status: "Available",
     },
+    {
+      ID: 2,
+      Product_Name: "Air Filter",
+      Category: "Filter",
+      Quantity: 5,
+      Net_Price: 2000,
+      Status: "Low Stock",
+    },
+    {
+      ID: 3,
+      Product_Name: "Oil Filter",
+      Category: "Filter",
+      Quantity: 10,
+      Net_Price: 500,
+      Status: "Not Available",
+    },
   ];
+
+  const filteredProducts = productsOverviews
+    .filter((product) => {
+      return;
+      productStatus === "All" || product.Status === productStatus;
+    })
+    .filter((product) => {
+      return product.Product_Name.toLowerCase().includes(
+        searchProducts.toLowerCase(),
+      );
+    });
+
   return (
     <>
       <div className={styles.dashboardContainer}>
@@ -126,6 +157,94 @@ const Dashboard = () => {
         </div>
       </div>
 
+      {/* Products Overview Section */}
+      <div className={styles.recentActivityContainer}>
+        <h2 className={styles.heading}>Product Overview</h2>
+        <hr />
+
+        {/* Search Input to check Products Availability*/}
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control mx-2"
+            placeholder="Search Products......"
+            value={searchProducts}
+            onChange={(e) => setSearchProducts(e.target.value)}
+          />
+        </div>
+
+        {/* Buttons for Filtration */}
+        <div class="mb-3 d-flex justify-content-center">
+          <button
+            type="button"
+            class="btn btn-primary me-2"
+            onClick={() => setProductStatus("All")}
+          >
+            All
+          </button>
+          <button
+            type="button"
+            class="btn btn-success me-2 "
+            onClick={() => setProductStatus("Available")}
+          >
+            Available Products
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning me-2"
+            onClick={() => setProductStatus("Low Stock")}
+          >
+            Low Stock Product
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            onClick={() => setProductStatus("Not Available")}
+          >
+            Out of Stock Products
+          </button>
+        </div>
+
+        <div className={`table-responsive ${styles.tableContainer}`}>
+          <table className={`table table-striped table-hover ${styles.table}`}>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Net Price</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredProducts.map((product) => (
+                <tr key={product.ID}>
+                  <td>{product.ID}</td>
+                  <td>{product.Product_Name}</td>
+                  <td>{product.Category}</td>
+                  <td>{product.Quantity}</td>
+                  <td>{product.Net_Price}</td>
+                  <td>
+                    <span
+                      className={
+                        product.Status === "Available"
+                          ? "badge bg-success"
+                          : product.Status === "Low Stock"
+                            ? "badge bg-warning text-dark"
+                            : "badge bg-danger"
+                      }
+                    >
+                      {product.Status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       {/* Charts Section */}
 
       <div className={styles.chartSection}>
@@ -159,50 +278,6 @@ const Dashboard = () => {
             />
           </LineChart>
         </ResponsiveContainer>
-      </div>
-
-      {/* Products Overview Section */}
-      <div className={styles.recentActivityContainer}>
-        <h2 className={styles.heading}>Product Overview</h2>
-        <hr />
-        <div className="table-responsive">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Status</th>
-              </tr>
-              <tbody>
-                {products.map((product, index) => {
-                  <tr key={product.ID}>
-                    <td>{index + 1}</td>
-                    <td>{product.Product_Name}</td>
-                    <td>{product.Category}</td>
-                    <td>{product.Quantity}</td>
-                    <td>{product.Price}</td>
-                    <td>
-                      <span
-                        className={
-                          product.Status === "Available"
-                            ? "badge bg-success"
-                            : product.Status === "Low Stock"
-                              ? "badge bg-warning text-dark"
-                              : "badge bg-danger"
-                        }
-                      >
-                        {product.Status}
-                      </span>
-                    </td>
-                  </tr>;
-                })}
-              </tbody>
-            </thead>
-          </table>
-        </div>
       </div>
     </>
   );
