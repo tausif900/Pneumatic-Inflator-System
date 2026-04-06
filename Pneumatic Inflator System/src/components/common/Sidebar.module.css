@@ -1,5 +1,5 @@
 .sidebarContainer {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: linear-gradient(180deg, #1f2832, #31404d);
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -23,7 +23,7 @@
 .sidebarlink {
     display: block;
     padding: 12px 15px;
-    color: black;
+    color: #edf3f8;
     font-size: 20px;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -31,12 +31,13 @@
 
 
 .sidebarlink:hover {
-    border-bottom: 1px solid black;
+    color: #f7a64f;
+    border-bottom: 1px solid #f28c28;
     transform: translateY(5px);
 }
 
 .active {
-    background: #4bbef8;
-    color: #000;
+    background: linear-gradient(135deg, #f28c28, #cf6b12);
+    color: #f9fbfd;
     border-radius: 5px;
 }

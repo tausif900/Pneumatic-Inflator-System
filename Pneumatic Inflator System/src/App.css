@@ -1,3 +1,15 @@
+:root {
+    --pi-bg-deep: #1c2430;
+    --pi-bg-mid: #2c3947;
+    --pi-steel: #46586b;
+    --pi-air: #6fa8c9;
+    --pi-air-soft: #b7d4e5;
+    --pi-accent: #f28c28;
+    --pi-accent-deep: #c96a12;
+    --pi-text-light: #f4f7fa;
+    --pi-text-dark: #18202a;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -8,21 +20,21 @@ html {
 }
 
 .nav-clr {
-    background-color: #ff8b2b;
+    background-color: var(--pi-accent);
     height: 105px;
     border-radius: 0px 0px 15px 15px;
     box-shadow: 0px 6px 10px 0px black;
 }
 
 .cust-btn {
-    background-color: #FF6F00;
-    color: white;
+    background-color: var(--pi-accent);
+    color: var(--pi-text-light);
     border: none;
     box-shadow: 1px 1px 10px 0px black
 }
 
 .cust-btn:hover {
-    background-color: #8E0000;
+    background-color: var(--pi-accent-deep);
     transform: scale(1.07);
 }
 
@@ -30,52 +42,52 @@ html {
     width: 500px;
     height: 400px;
     border: none;
-    box-shadow: 0px 0px 19px 11px #ff8b2b
+    box-shadow: 0px 0px 19px 11px rgba(242, 140, 40, 0.45)
 }
 
 
 .cust-register {
     width: 500px;
     border: none;
-    box-shadow: 0px 0px 19px 11px #ff8b2b
+    box-shadow: 0px 0px 19px 11px rgba(242, 140, 40, 0.45)
 }
 
 .kg-cust-login-btn {
-    background-color: #FF6F00;
-    color: white;
+    background-color: var(--pi-accent);
+    color: var(--pi-text-light);
     border-radius: 10px;
     height: 40px;
     box-shadow: 1px 1px 10px 0px black
 }
 
 .kg-cust-Register-btn {
-    background-color: #FF6F00;
-    color: white;
+    background-color: var(--pi-accent);
+    color: var(--pi-text-light);
     border-radius: 10px;
     height: 40px;
     box-shadow: 1px 1px 10px 0px black
 }
 
 .kg-cust-login-btn:hover {
-    background-color: #8E0000;
+    background-color: var(--pi-accent-deep);
     transform: scale(1.07);
 }
 
 .kg-cust-Register-btn:hover {
-    background-color: #8E0000;
+    background-color: var(--pi-accent-deep);
     transform: scale(1.07);
 }
 
 .text-decoration-underline {
-    color: #8E0000;
+    color: var(--pi-accent-deep);
 }
 
 .input-login {
-    box-shadow: 0px 0px 17px 1px #ff8b2b;
+    box-shadow: 0px 0px 17px 1px rgba(242, 140, 40, 0.35);
 }
 
 label {
-    color: #FF6F00;
+    color: var(--pi-accent);
 }
 
 /* .text-center {
@@ -88,7 +100,7 @@ label {
 }
 
 .cust-footer {
-    background-color: #ff8b2b;
+    background-color: var(--pi-accent);
     height: 250px;
     border-radius: 15px 15px 0px 0px;
     box-shadow: 0px -5px 16px 0px black;
@@ -96,4 +108,61 @@ label {
 
 .text-clr {
     color: black;
+}
+
+.btn-primary,
+.btn-success,
+.btn-warning,
+.btn-danger {
+    border: none !important;
+    box-shadow: 0 8px 18px rgba(20, 28, 36, 0.18);
+}
+
+.btn-primary {
+    background-color: var(--pi-accent) !important;
+    color: var(--pi-text-light) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--pi-accent-deep) !important;
+}
+
+.btn-success {
+    background-color: #4f8a5b !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+    background-color: #3c6f48 !important;
+}
+
+.btn-warning {
+    background-color: #d6a22b !important;
+    color: var(--pi-text-dark) !important;
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active {
+    background-color: #b98716 !important;
+    color: var(--pi-text-dark) !important;
+}
+
+.btn-danger {
+    background-color: #b5523b !important;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
+    background-color: #94402d !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: rgba(242, 140, 40, 0.65) !important;
+    box-shadow: 0 0 0 0.2rem rgba(242, 140, 40, 0.18) !important;
 }

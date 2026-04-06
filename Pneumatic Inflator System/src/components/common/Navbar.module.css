@@ -1,9 +1,9 @@
  .navbarContainer {
-     background: linear-gradient(135deg, #234687, #2a5298, #6dd5ed);
+     background: linear-gradient(135deg, #202a35, #374655, #6f8698);
      padding: 5px 20px;
      height: 80px;
      transition: all 0.3s ease-in-out;
-     color: black;
+     color: #f4f7fa;
      font-size: 22px;
      display: flex;
  }
@@ -13,7 +13,7 @@
      justify-content: space-around;
      margin: 20px;
      font-size: 20px;
-     color: azure;
+     color: #f28c28;
      font-weight: bold;
      letter-spacing: 1px;
      transition: 0.3s ease;
@@ -33,7 +33,7 @@
  }
 
  .link {
-     color: black;
+     color: #f4f7fa;
      text-decoration: none;
      transition: all 0.3s ease;
      border-bottom: 2px solid transparent;
@@ -42,5 +42,6 @@
 
  .link:hover {
      transform: translateY(-2px);
-     border-bottom: 1px solid black;
+     color: #f7a64f;
+     border-bottom: 1px solid #f28c28;
  }

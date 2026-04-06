@@ -16,7 +16,6 @@ const Dashboard = () => {
   const [searchProducts, setSearchProducts] = useState("");
   const [productStatus, setProductStatus] = useState("All");
   const [products, setProducts] = useState([]);
-
   const [newProduct, setNewProduct] = useState({
     Product_Name: "",
     Category: "",
@@ -24,6 +23,8 @@ const Dashboard = () => {
     Net_Price: "",
     Status: "Available",
   });
+
+  const [editID, setEditID] = useState(null);
 
   // handleChange is a function that handles the change when we write anything in input fields.
   const handleChange = (e) => {
@@ -33,6 +34,16 @@ const Dashboard = () => {
 
   // Add Product funtionality
   const handleAddProduct = () => {
+    if (!newProduct.Product_Name || !newProduct.Category) {
+      alert("Please fill all fields");
+    }
+    if (editID !== null) {
+      const updatedProducts = products.map((product) => {
+        product.ID === editID ? { ...newProduct, ID: editID } : product;
+      });
+      setProducts(updatedProducts);
+      setEditID(null);
+    }
     const newEntry = { ...newProduct, ID: products.length + 1 };
     setProducts([...products, newEntry]);
     setNewProduct({
@@ -48,6 +59,11 @@ const Dashboard = () => {
   const handleDeleteProduct = (id) => {
     const updateProducts = products.filter((product) => product.ID !== id);
     setProducts(updateProducts);
+  };
+
+  const handleEditProduct = (product) => {
+    setNewProduct(product);
+    setEditID(product.ID);
   };
 
   const data = [
@@ -169,8 +185,8 @@ const Dashboard = () => {
         <h2 className={styles.heading}>Product Overview</h2>
         <hr />
         {/* CRUD for Product ----> form for product */}
-        <div className="card p-2 shadow-sm mb-4 mx-5">
-          <h5 className="px-3">Add New Product</h5>
+        <div className="card p-2 shadow-sm mb-4 mx-5 px-5">
+          <h5 className="px-3 my-3">Add New Product</h5>
           <div className="row">
             <div className="col-md-6 mb-3">
               <input
@@ -227,10 +243,17 @@ const Dashboard = () => {
             <div className="text-start col-md-6 mb-3">
               <button
                 type="button"
-                className="btn btn-primary px-4"
+                className="btn btn-primary px-4 mx-2"
                 onClick={handleAddProduct}
               >
-                Add
+                {editID !== null ? "Update" : "Add"}
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary px-4 mx-2"
+                onClick={() => handleEditProduct(product)}
+              >
+                Edit
               </button>
             </div>
           </div>
@@ -343,24 +366,24 @@ const Dashboard = () => {
         <h3>Sales Overview</h3>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-            <XAxis dataKey="name" stroke="#ffffff" />
-            <YAxis stroke="#ffffff" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#6d7f8e" />
+            <XAxis dataKey="name" stroke="#f4f7fa" />
+            <YAxis stroke="#f4f7fa" />
             <Tooltip
               contentStyle={{
-                backgroundColor: "#1e1e2f",
-                border: "none",
+                backgroundColor: "#24303b",
+                border: "1px solid rgba(242, 140, 40, 0.35)",
                 borderRadius: "8px",
-                color: "#fff",
+                color: "#f4f7fa",
               }}
             />
-            <Legend wrapperStyle={{ color: "#fff" }} />
+            <Legend wrapperStyle={{ color: "#f4f7fa" }} />
             <Line
               type="monotone"
               dataKey="sales"
-              stroke="#00e5ff"
+              stroke="#f28c28"
               strokeWidth={3}
-              dot={{ r: 4, fill: "#00e5ff" }}
+              dot={{ r: 4, fill: "#f28c28" }}
               activeDot={{ r: 6 }}
             />
           </LineChart>

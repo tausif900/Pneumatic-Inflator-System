@@ -3,8 +3,8 @@
 }
 
 .heroBox {
-    background: linear-gradient(135deg, #3878ef, #9ab7ea);
-    color: black;
+    background: linear-gradient(135deg, #26323d, #536879, #91b6c9);
+    color: #f4f7fa;
     transition: 0.4s ease;
 }
 
@@ -35,12 +35,14 @@
 
 .btnCustom {
     transition: all 0.3s ease;
-    background-color: #9ab7ea;
+    background-color: #f28c28;
+    color: #f4f7fa;
+    border: none;
 }
 
 .btnCustom:hover {
     transform: translateY(-5px) scale(1.05);
-    background-color: #9ab7ea !important;
+    background-color: #cf6b12 !important;
     border: none;
 }
 
@@ -106,20 +108,20 @@
 
 .featureCard:hover {
     transform: translateY(-8px);
-    background-color: #33b1fa;
+    background-color: rgba(242, 140, 40, 0.18);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .featureIcon {
     font-size: 2rem;
     margin-right: 15px;
-    color: #0d6efd;
+    color: #f28c28;
     transition: all 0.3s ease;
 }
 
 .featureCard:hover .featureIcon {
     transform: scale(1.2);
-    color: #4972f8;
+    color: #cf6b12;
 }
 
 .featureTitle {
@@ -128,7 +130,7 @@
 
 
 .featureCard:hover .featureTitle {
-    color: #0d6efd;
+    color: #f28c28;
 }
 
 

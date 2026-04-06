@@ -18,11 +18,11 @@
 }
 
 .loginCard {
-  background-color: rgb(2, 75, 158);
+  background: linear-gradient(135deg, #26323d, #425261);
 }
 
 .logonButton {
-  background-color: rgba(24, 87, 189, 0.444);
+  background-color: rgba(242, 140, 40, 0.85);
 }
 
 .input {
